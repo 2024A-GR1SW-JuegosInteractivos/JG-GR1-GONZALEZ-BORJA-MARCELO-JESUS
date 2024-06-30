@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>GDD_Proyecto_1BIM.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="centergame-design-document-gdd"><center>Game Design Document (GDD)</h1>
+<div id='id1' />
+<h3 id="1-portada">1. Portada</h3>
+<p align="center">
+  <img src="/Images/portada.jpg", width= '400px' alt="Portada Storm Reborn" />
+</p>
+<p>Título del juego: Storm Reborn</p>
+<p>Versión: 1.0</p>
+<p>Fecha: 30 de junio de 2024</p>
+<p>Autor: Jesus González y Daniel Velin</p>
+<div id='id2' />
+<h3 id="2-indice">2. INDICE</h3>
+<ol>
+<li>
+<p><a href="#id1">Primer apartado</a></p>
+</li>
+<li>
+<p><a href="#id2">Índice</a></p>
+</li>
+<li>
+<p><a href="#id3">Visión General del Juego</a></p>
+<p>3.1. <a href="#id31">Descripción</a></p>
+<p>3.2. <a href="#id32">Objetivo</a></p>
+<p>3.3. <a href="#id33">Género</a></p>
+<p>3.4. <a href="#id34">Plataformas</a></p>
+<p>3.5. <a href="#id35">Público Objetivo</a></p>
+<p>3.6. <a href="#id36">Inspiración e Influencias</a></p>
+<p>3.7. <a href="#id37">Modelo de negocio</a></p>
+</li>
+<li>
+<p><a href="#id4">Mecánicas del Juego</a></p>
+<p>4.1. <a href="#id41">Descripción General de la Jugabilidad</a></p>
+<p>4.2. <a href="#id42">Controles</a></p>
+<p>4.3. <a href="#id43">Mecánicas Básicas</a></p>
+<p>4.4. <a href="#id44">Mecánicas Avanzadas</a></p>
+<p>4.5. <a href="#id45">Interfaz de Usuario (UI)</a></p>
+<p>4.6. <a href="#id46">Sistemas de Progresión</a></p>
+<p>4.7. <a href="#id47">Inventario y Equipamiento</a></p>
+</li>
+<li>
+<p><a href="#id5">Mundo del Juego</a></p>
+<p>5.1. <a href="#id51">Historia</a></p>
+<p>5.2. <a href="#id52">Descripción del Mundo</a></p>
+<p>5.3. <a href="#id53">Mapas y Niveles</a></p>
+<p>5.4. <a href="#id54">Personajes y Enemigos</a></p>
+<p>5.5. <a href="#id55">Eventos y Misiones</a></p>
+</li>
+<li>
+<p><a href="#id6">Estética del Juego</a></p>
+<p>6.1. <a href="#id61">Estilo Visual</a></p>
+<p>6.2. <a href="#id62">Diseño de Personajes</a></p>
+<p>6.3. <a href="#id63">Diseño de Niveles</a></p>
+</li>
+</ol>
+<div id='id3' />
+<h3 id="3-visi%C3%B3n-general-del-juego">3. Visión General del Juego</h3>
+<div id='id31' />
+<h4 id="31-descripci%C3%B3n">3.1 Descripción</h4>
+<p>&quot;Storm Reborn&quot; es un juego de disparos en primera persona (FPS) con elementos de reclutamiento táctico y un sistema de enemigos con autoaprendizaje único. Los jugadores asumen el papel de un mercenario exmilitar en busca de venganza, contratado por organizaciones secretas para realizar misiones peligrosas y desmantelar operaciones enemigas. Durante el juego, los jugadores podrán reclutar y gestionar un equipo de acompañantes especializados para ayudar en las misiones.</p>
+<div id='id32' />
+<h4 id="32-objetivo">3.2 Objetivo</h4>
+<p>El objetivo del juego es completar misiones y objetivos asignados por organizaciones secretas, mientras se construye y gestiona un equipo de mercenarios para asistir en la búsqueda de venganza y desmantelamiento de operaciones enemigas.</p>
+<div id='id33' />
+<h4 id="33-g%C3%A9nero">3.3 Género</h4>
+<p>Juego FPS táctico con elementos de reclutamiento y gestión de equipos.</p>
+<div id='id34' />
+<h4 id="34-plataformas">3.4 Plataformas</h4>
+<p>PC, consolas (PlayStation, Xbox).</p>
+<div id='id35' />
+<h4 id="35-p%C3%BAblico-objetivo">3.5 Público Objetivo</h4>
+<p>• Jugadores de FPS y fanáticos de juegos tácticos que disfrutan de la narrativa profunda y la gestión de equipos.</p>
+<p>• La clasificación para tipo de público es PEGI 18: para mayores de edad porque incluye un alto grado de violencia. Puede incluir contenido sexual explícito, muestras de discriminación o de idealización del consumo de drogas.</p>
+<p>• La clasificación para edad es ESRB A +18: Aplicaciones solo para adultos. Pueden incluir violencia intensa y contenido sexual explícito Permite juegos de azar con dinero real.</p>
+<div id='id36' />
+<h4 id="36-inspiraci%C3%B3n-e-influencias">3.6 Inspiración e Influencias</h4>
+<p>• Call of Duty (franquicia)</p>
+<p>• Spec Ops the Line</p>
+<p>• Rainbow Six Vegas (1 y 2)</p>
+<p>• SWAT 4</p>
+<p>• XCOM 2</p>
+<p>• Shadow of Mordor</p>
+<div id='id37' />
+<h4 id="37-modelo-de-negocio">3.7 Modelo de negocio</h4>
+<p>• El juego es de venta tradicional o única, es decir, compra y juega.</p>
+<p>• Los canales de distribución serían digitales, a través de plataformas como: Steam, PlayStation Store y Xbox Store</p>
+<p>• El juego podría contener expaciones (DLCs) como contenido adicional que amplíen la historia, misiones y opciones de juego.</p>
+<div id='id4' />
+<h3 id="4-mec%C3%A1nicas-del-juego">4. Mecánicas del Juego</h3>
+<div id='id41' />
+<h4 id="41-descripci%C3%B3n-general-de-la-jugabilidad">4.1 Descripción General de la Jugabilidad</h4>
+<p>El jugador controla a un mercenario en primera persona, completando misiones y combates tácticos. Durante el juego, puede reclutar y gestionar un equipo de acompañantes que lo ayudarán en futuras misiones. Además, los enemigos a los que enfrenta serán mas fuertes por sus sistema de autoaprendizaje. Haciendo que, el jugador tenga que adaptar su estrategia en cada misión.</p>
+<div id='id42' />
+<h4 id="42-controles">4.2 Controles</h4>
+<p>• Movimiento: WASD o joystick.</p>
+<p>• Apuntar y disparar: Ratón o gatillos del mando.</p>
+<p>• Interacción: E (PC) o botón de acción (consola).</p>
+<p>• Gestión de equipo: Menú accesible durante y entre misiones.</p>
+<div id='id43' />
+<h4 id="43-mec%C3%A1nicas-b%C3%A1sicas">4.3 Mecánicas Básicas</h4>
+<p>• Combate FPS: Disparos en primera persona con una variedad de armas y equipo.</p>
+<p>• Cobertura: Sistema de cobertura para evitar daños.</p>
+<p>• Reclutamiento: Reclutar personajes únicos con habilidades específicas.</p>
+<p>• Gestión de equipo: Asignar roles y equipos a los acompañantes.</p>
+<div id='id44' />
+<h4 id="44-mec%C3%A1nicas-avanzadas">4.4 Mecánicas Avanzadas</h4>
+<p>• Sistema de Autoaprendizaje: Los enemigos que sobreviven en combate pueden regresar más fuertes o enseñar a los demás enemigos nuevas habilidades.</p>
+<p>• Mejoras de habilidades: Progreso y mejora de habilidades para el personaje principal y sus acompañantes.</p>
+<p>• Tácticas de equipo: Coordinación y comandos para el equipo durante las misiones.</p>
+<div id='id45' />
+<h4 id="45-interfaz-de-usuario-ui">4.5 Interfaz de Usuario (UI)</h4>
+<p>• HUD: Información sobre salud, munición, arma equipada, objetivos, y estado del equipo.</p>
+<p>• Menú de gestión: Acceso a la configuración del equipo, mejoras de habilidades, y personalización de armas.</p>
+<p>• Pantalla de misión: Información detallada sobre la misión actual y los objetivos secundarios.</p>
+<div id='id46' />
+<h4 id="46-sistemas-de-progresi%C3%B3n">4.6 Sistemas de Progresión</h4>
+<p>• Niveles de experiencia: Ganar experiencia para subir de nivel y desbloquear habilidades y mejoras.</p>
+<p>• Reputación: Aumentar la reputación con diferentes organizaciones para acceder a mejores contratos y recompensas.</p>
+<div id='id47' />
+<h4 id="47-inventario-y-equipamiento">4.7 Inventario y Equipamiento</h4>
+<p>• Armas: Variedad de armas que se pueden desbloquear y mejorar.</p>
+<p>• Equipamiento: Elementos tácticos como granadas, explosivos, de espionaje, elementos de curación y reanimación.</p>
+<p>• Personalización: Opciones para personalizar armas, equipo y personajes según las preferencias del jugador.</p>
+<div id='id5' />
+<h3 id="5-mundo-del-juego">5. Mundo del Juego</h3>
+<div id='id51' />
+<h4 id="51-historia">5.1. Historia</h4>
+<p>El juego se sitúa en un mundo contemporáneo muy parecido al nuestro, donde la vida cotidiana transcurre con normalidad para la mayoría de las personas. Sin embargo, bajo la superficie, se libra una guerra secreta entre poderosas organizaciones con intereses oscuros y recursos ilimitados. Estas organizaciones luchan por el poder territorial, económmico, por recursos valiosos y tecnologías avanzadas que podrían cambiar el equilibrio de poder global.</p>
+<p>El protagonista, un exmilitar convertido en mercenario, es reclutado por varias de estas organizaciones para llevar a cabo misiones peligrosas que van desde sabotajes y rescates, hasta la eliminación de objetivos clave y la recuperación de información clasificada. Motivado por la venganza tras la trágica muerte de su familia y amigos en un ataque perpetrado por una de estas organizaciones, el protagonista se sumerge en un mundo de intriga y conflicto, decidido a descubrir la verdad y vengar a sus seres queridos.</p>
+<div id='id52' />
+<h4 id="52-descripci%C3%B3n-del-mundo">5.2. Descripción del Mundo</h4>
+<p>El mundo de &quot;Storm Reborn&quot; es un reflejo de la realidad contemporánea, con grandes ciudades llenas de vida, áreas rurales tranquilas, y zonas de conflicto donde se libra una guerra encubierta. La sociedad en general desconoce la existencia de estos enfrentamientos, que son cuidadosamente ocultados por los medios de comunicación y las autoridades. Sin embargo, en ciertos lugares, los signos del conflicto son inconfundibles.</p>
+<p><strong>Zonas de Conflicto</strong>
+• Barrios Clandestinos en Ciudades Globales: En las metrópolis de todo el mundo, existen áreas urbanas donde la presencia de milicias y facciones armadas es evidente. Estos barrios, a menudo controlados por grupos criminales o mercenarios, son campos de batalla para la lucha por el control de territorio y recursos.</p>
+<p>• Áreas Rurales Abandonadas: En regiones alejadas de la civilización, se han establecido bases secretas y campos de entrenamiento. Estos lugares son escenarios de enfrentamientos entre mercenarios y fuerzas gubernamentales o rivales.</p>
+<p>• Instalaciones Subterráneas y Búnkeres: Por debajo de la superficie, existen complejas redes de túneles y búnkeres que sirven como refugios y centros de operaciones para las organizaciones secretas. Estas instalaciones están equipadas con tecnología avanzada y son escenarios de intensas batallas y operaciones de rescate.</p>
+<p>• Zonas Fronterizas y Áreas de Conflicto: En ciertos países y regiones, las guerras internas han dejado paisajes devastados. Estos lugares son frecuentemente escenarios de misiones de rescate y combate directo con facciones enemigas.</p>
+<div id='id53' />
+<h4 id="53-mapas-y-niveles">5.3. Mapas y Niveles</h4>
+<p>• Ciudad Metropolitana: Una gran ciudad con edificios altos y una arquitectura moderna. Las misiones en esta área incluyen infiltraciones en rascacielos, combate en callejones oscuros y sabotaje de infraestructuras críticas.</p>
+<p>• Zona Rural: Un entorno campestre con granjas abandonadas y pequeñas comunidades. Las misiones aquí pueden implicar la búsqueda y destrucción de escondites de armas y la liberación de prisioneros de guerra.</p>
+<p>• Base Subterránea: Una instalación secreta con una compleja red de túneles y cámaras de seguridad. Este nivel desafía a los jugadores a navegar por un laberinto subterráneo mientras evitan o enfrentan a guardias y sistemas de defensa automatizados.</p>
+<p>• Área Desmilitarizada:Una franja de territorio controlada por fuerzas rivales, con trincheras y puestos de control fortificados. Los jugadores deben atravesar este campo de batalla mientras evitan el fuego enemigo y completan objetivos como desactivar bombas o rescatar rehenes.</p>
+<div id='id54' />
+<h4 id="54-personajes-y-enemigos">5.4. Personajes y Enemigos</h4>
+<p>• Protagonista: Un mercenario altamente entrenado, exmilitar en jefe de una unidad militar de élite. Busca venganza por la pérdida de sus seres queridos en un atentado. Sus habilidades incluyen combate cuerpo a cuerpo, combate a media y larga distancia, tácticas de guerrilla y liderazgo en operaciones encubiertas.</p>
+<p>• Acompañantes: Personajes reclutados a lo largo del juego, cada uno con habilidades específicas que complementan las del protagonista. Estas habilidades pueden ser: expertos en tecnología, francotiradores y médicos de combate. Estos personajes tienen sus propias historias y motivaciones, lo que añade profundidad a la narrativa del juego.</p>
+<p>• Enemigos: Una variedad de oponentes que incluyen soldados de organizaciones rivales, mercenarios contratados y líderes de facciones con habilidades especiales y estrategias de combate únicas. Algunos enemigos, si no son eliminados, pueden regresar en misiones posteriores más fuertes y con nuevas habilidades, gracias al sistema de autoaprendizaje.</p>
+<div id='id55' />
+<h4 id="55-eventos-y-misiones">5.5. Eventos y Misiones</h4>
+<p>• Misión Principal: Desentrañar y desmantelar la red de una organización secreta responsable del ataque que mató a la familia del protagonista. Cada misión principal avanza la historia y revela más detalles sobre la conspiración y las facciones involucradas.</p>
+<p>• Misiones Secundarias: Incluyen tareas como rescatar prisioneros de guerra, interceptar comunicaciones enemigas, sabotear instalaciones críticas y eliminar objetivos específicos que amenazan la estabilidad de la región.</p>
+<p>• Eventos Especiales: Ocasionalmente, los jugadores se enfrentarán a líderes enemigos que han sobrevivido a encuentros previos, presentando un desafío adicional y una oportunidad para reclutar valiosos aliados u obtener información crucial.</p>
+<div id='id6' />
+<h3 id="6-est%C3%A9tica-del-juego">6. Estética del Juego</h3>
+<div id='id61' />
+<h4 id="61-estilo-visual">6.1. Estilo Visual</h4>
+<p>• Estilo artístico: Se centra en un realismo detallado para sumergir al jugador en un mundo que se siente auténtico. Los modelos de personajes, entornos y objetos se crean con gran precisión y atención al detalle, utilizando texturas de alta resolución y efectos de iluminación avanzados. Se busca un contraste visual claro entre las zonas de vida cotidiana y las áreas de conflicto. Las ciudades pueden ser vibrantes y llenas de vida, mientras que las zonas de guerra muestran tonos más oscuros, con sombras profundas y efectos de luz que sugieren tensión y peligro.</p>
+<p>• Paleta de colores: En las zonas urbanas se usan colores vibrantes y diversos para reflejar la vida cotidiana en la ciudad, con tonos neutros y fríos para los edificios y el paisaje urbano. Se incorporan detalles brillantes y coloridos en publicidad y señalización para dar vida a las calles. En las zonas de conflicto predominan los tonos oscuros y terrosos, con rojos intensos y negros profundos para enfatizar la devastación y el peligro.</p>
+<div id='id62' />
+<h4 id="62-dise%C3%B1o-de-personajes">6.2. Diseño de Personajes</h4>
+<p>• Protagonista: Equipado con un vestuario táctico moderno que mezcla elementos militares y de supervivencia urbana. La apariencia del protagonista es customizable, con opciones para cambiar su equipo y armamento según las misiones y preferencias del jugador.</p>
+<p>• Acompañantes: Cada personaje tiene un diseño único que refleja su especialidad y personalidad. Un médico puede llevar equipo de primeros auxilios visible, mientras que un francotirador podría tener un traje camuflado y equipo especializado para largas distancias.</p>
+<p>• Enemigos: Los enemigos varían desde soldados de organizaciones secretas con uniformes tácticos, hasta mercenarios con equipo personalizado. Los líderes enemigos tienen diseños distintivos que reflejan su estatus y habilidades especiales.</p>
+<p><strong>Entornos</strong></p>
+<p>• Ciudad Metropolitana: Diseñada con rascacielos modernos, calles llenas de tráfico y peatones. Los detalles incluyen carteles de neón, escaparates iluminados y paradas de autobús. En las zonas de conflicto dentro de la ciudad, se agregan escombros, vehículos blindados y barricadas improvisadas.</p>
+<p>• Zona Rural: Paisajes abiertos con granjas, bosques y pequeñas aldeas. Los entornos rurales muestran campos de cultivo, caminos de tierra y construcciones de madera. En áreas de conflicto, se incluyen campamentos militares, escondites y áreas minadas.</p>
+<p>• Base Subterránea: Espacios industriales con corredores estrechos, salas de control y almacenes subterráneos. Las instalaciones presentan una arquitectura funcional y robusta, con detalles de sistemas de ventilación, iluminación industrial y señalización de seguridad.</p>
+<div id='id63' />
+<h4 id="63-dise%C3%B1o-de-niveles">6.3. Diseño de Niveles</h4>
+<p>• Niveles Abiertos: Amplios espacios urbanos o rurales que ofrecen múltiples rutas y oportunidades para el combate táctico y la exploración. Los niveles urbanos pueden incluir azoteas y subterráneos accesibles, mientras que los niveles rurales ofrecen cobertura natural y escondites.</p>
+<p>• Niveles Cerrados: Diseñados para crear una sensación de claustrofobia y peligro inminente. Incluyen instalaciones subterráneas, edificios en ruinas y búnkeres con pasillos estrechos y habitaciones conectadas, lo que obliga a los jugadores a pensar estratégicamente en cada movimiento.</p>
+
+</body>
+</html>
