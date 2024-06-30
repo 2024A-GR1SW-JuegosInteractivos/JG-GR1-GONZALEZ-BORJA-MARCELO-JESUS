@@ -4,10 +4,6 @@
 
 ### 1. Portada
 
-<p align="center">
-  <img src="/Images/portada.jpg", width= '400px' alt="Portada Storm Reborn" />
-</p>
-
 Título del juego: Storm Reborn
 
 Versión: 1.0
