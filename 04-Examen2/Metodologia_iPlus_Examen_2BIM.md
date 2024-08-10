@@ -87,11 +87,11 @@ Objetivo: Establecer los objetivos educativos y cognitivos del juego.
 #### 4.1 Actividades
 
 - Definición de Objetivos Cognitivos:
-  - Establecer metas como el incremento de la capacidad de retención de patrones visuales, reducción de los tiempos de respuesta, y la mejora de la atención sostenida.
+  - Incremento de la capacidad de retención de patrones visuales, reducción de los tiempos de respuesta, y la mejora de la atención sostenida.
 - Especificación de Indicadores de Éxito:
-  - Definir cómo se medirá el éxito, como la mejora en pruebas de memoria antes y después de jugar, o el tiempo reducido para completar niveles.
+  - Mejora en pruebas de memoria antes y después de jugar, o el tiempo reducido para completar niveles.
 - Establecimiento de Contenidos Educativos:
-  - Decidir qué tipo de imágenes o conceptos se usarán en las cartas para reforzar el aprendizaje (por ejemplo, uso de símbolos o imágenes relacionadas con temas educativos).
+  - Uso de la temática de animales en las cartas para reforzar el aprendizaje.
 
 <div id='id42' />
 
@@ -115,7 +115,7 @@ Objetivo: Desarrollar el guión que definirá la estructura y narrativa del jueg
 - Estructura de los Niveles:
   - Planificación de los diferentes niveles, comenzando con los más sencillos (menos cartas, más tiempo) y avanzando hacia niveles más complejos (más cartas, menos tiempo).
 - Definición de Reglas y Mecánicas de Juego:
-  - Establecer las reglas principales: cómo se seleccionan las cartas, qué ocurre cuando se encuentra una pareja, cómo se maneja el tiempo y los errores.
+  - Reglas principales: cómo se seleccionan las cartas, qué ocurre cuando se encuentra una pareja, cómo se maneja el tiempo y los errores.
 - Diseño de la Interacción:
   - Planificación de la interfaz de usuario y cómo los jugadores interactuarán con el juego (clics para voltear cartas, sonidos y animaciones de retroalimentación).
 
